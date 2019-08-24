@@ -1,0 +1,18 @@
+<h1>Your To Do List</h1>
+
+<!--<ul>
+    <li>temporary todo item A</li>
+    <li>temporary todo item B</li>
+</ul> -->
+
+<ul>
+    <p>
+        Your to do list is empty. Please contact your parent
+        or supervisor for more things to do.
+    </p>
+</ul>
+
+<form action="/addTodo/" method="post">{% csrf_token %}
+    <input type="text" name="content"/>
+    <input type="submit" value="Add"/>
+</form>
