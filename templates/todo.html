@@ -1,20 +1,26 @@
-<h1>Your To Do List</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1>Your To Do List</h1>
 
-<ul>
-    {% for todo_item in all_items %}
-        <li>{{ todo_item.content }}
-            <form action="/deleteTodo/{{todo_item.id}}/"
-                    style="display: inline;"
-                    method="post">{% csrf_token %}
-                <input type="submit" value="Done">
-            </form>
-        </li>
-    {% endfor %}
-</ul>
+    {% load staticfiles %}
 
-<form action="/addTodo/" method="post">{% csrf_token %}
-    <input type="text" name="content"/>
-    <input type="submit" value="Add"/>
-</form>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+    <ul>
+        {% for todo_item in all_items %}
+            <li>{{ todo_item.content }}
+                <form action="/deleteTodo/{{todo_item.id}}/"
+                        style="display: inline;"
+                        method="post">{% csrf_token %}
+                    <input type="submit" value="Done">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
 
-<img src="https://iplogger.org/179Qs7" border="0">
+    <form action="/addTodo/" method="post">{% csrf_token %}
+        <input type="text" name="content"/>
+        <input type="submit" value="Add"/>
+    </form>
+</html>
